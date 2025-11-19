@@ -19,26 +19,10 @@ spec:
       labels:
         {{- include "activemq.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.podSecurityContext }}
-      securityContext:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       containers:
       - name: activemq
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        {{- with .Values.securityContext }}
-        securityContext:
-          {{- toYaml . | nindent 10 }}
-        {{- end }}
-        env:
-        - name: ACTIVEMQ_ADMIN_LOGIN
-          value: {{ .Values.auth.username | quote }}
-        - name: ACTIVEMQ_ADMIN_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: {{ include "activemq.fullname" . }}
-              key: activemq-password
         ports:
         - name: openwire
           containerPort: 61616

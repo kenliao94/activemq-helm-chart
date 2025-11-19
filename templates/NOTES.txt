@@ -21,9 +21,9 @@
   kubectl --namespace {{ .Release.Namespace }} port-forward $POD_NAME 8161:$CONTAINER_PORT
 {{- end }}
 
-2. Login credentials:
-   Username: {{ .Values.auth.username }}
-   Password: {{ .Values.auth.password }}
+2. Login credentials (default):
+   Username: admin
+   Password: admin
 
 3. To connect to ActiveMQ from applications:
    Connection URL: tcp://{{ include "activemq.fullname" . }}:{{ .Values.service.port }}
