@@ -53,6 +53,12 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /opt/apache-activemq/data
+        - name: config
+          mountPath: /opt/apache-activemq/conf/users.properties
+          subPath: users.properties
+        - name: config
+          mountPath: /opt/apache-activemq/conf/groups.properties
+          subPath: groups.properties
         {{- with .Values.resources }}
         resources:
           {{- toYaml . | nindent 10 }}
@@ -69,8 +75,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-  {{- if not .Values.persistence.enabled }}
       volumes:
+      - name: config
+        configMap:
+          name: {{ include "activemq.fullname" . }}-config
+  {{- if not .Values.persistence.enabled }}
       - name: data
         emptyDir: {}
   {{- end }}

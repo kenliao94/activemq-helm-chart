@@ -8,6 +8,10 @@ image:
 nameOverride: ""
 fullnameOverride: ""
 
+auth:
+  username: admin
+  password: changeme
+
 service:
   type: ClusterIP
   port: 61616

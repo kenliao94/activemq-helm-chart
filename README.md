@@ -38,6 +38,8 @@ The following table lists the configurable parameters of the ActiveMQ chart and 
 | `image.repository` | ActiveMQ image repository | `apache/activemq-classic` |
 | `image.tag` | ActiveMQ image tag | `latest` |
 | `image.pullPolicy` | Image pull policy | `IfNotPresent` |
+| `auth.username` | ActiveMQ admin username | `admin` |
+| `auth.password` | ActiveMQ admin password | `changeme` |
 | `service.type` | Kubernetes service type | `ClusterIP` |
 | `service.port` | OpenWire service port | `61616` |
 | `service.webConsolePort` | Web Console port | `8161` |
@@ -63,7 +65,7 @@ The ActiveMQ Web Console is accessible on port 8161. To access it locally:
 kubectl port-forward svc/my-activemq 8161:8161
 ```
 
-Then open http://localhost:8161 in your browser and login with the default credentials (admin/admin).
+Then open http://localhost:8161 in your browser and login with the configured credentials.
 
 ### OpenWire Connection
 
