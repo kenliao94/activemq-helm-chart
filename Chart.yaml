@@ -1,6 +1,6 @@
 apiVersion: v2
 name: activemq
-description: A Helm chart for Apache ActiveMQ Classic
+description: A Helm chart for Apache ActiveMQ
 type: application
 version: 1.0.0
 appVersion: "latest"
