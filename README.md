@@ -1,6 +1,6 @@
 # ActiveMQ Helm Chart
 
-A Helm chart for deploying Apache ActiveMQ Classic on Kubernetes.
+A Helm chart for deploying Apache ActiveMQ on Kubernetes.
 
 ## Introduction
 
