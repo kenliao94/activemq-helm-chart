@@ -59,6 +59,11 @@ spec:
         - name: config
           mountPath: /opt/apache-activemq/conf/groups.properties
           subPath: groups.properties
+        {{- if .Values.config.activemqXmlPath }}
+        - name: config
+          mountPath: /opt/apache-activemq/conf/activemq.xml
+          subPath: activemq.xml
+        {{- end }}
         {{- with .Values.resources }}
         resources:
           {{- toYaml . | nindent 10 }}

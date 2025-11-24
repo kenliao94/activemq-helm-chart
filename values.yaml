@@ -12,6 +12,9 @@ auth:
   username: admin
   password: changeme
 
+config:
+  activemqXmlPath: ""
+
 service:
   type: ClusterIP
   port: 61616

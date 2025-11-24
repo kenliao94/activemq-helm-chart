@@ -9,3 +9,7 @@ data:
     {{ .Values.auth.username }}={{ .Values.auth.password }}
   groups.properties: |
     admins={{ .Values.auth.username }}
+  {{- if .Values.config.activemqXmlPath }}
+  activemq.xml: |
+{{ .Files.Get .Values.config.activemqXmlPath | indent 4 }}
+  {{- end }}

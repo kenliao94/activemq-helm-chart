@@ -54,6 +54,7 @@ The following table lists the configurable parameters of the ActiveMQ chart and 
 | `livenessProbe.enabled` | Enable liveness probe | `true` |
 | `readinessProbe.enabled` | Enable readiness probe | `true` |
 | `ingress.enabled` | Enable ingress | `false` |
+| `config.activemqXmlPath` | Path to custom activemq.xml file | `""` |
 
 ## Accessing ActiveMQ
 
@@ -73,6 +74,27 @@ Applications can connect to ActiveMQ on port 61616 using the service name:
 
 ```
 tcp://my-activemq:61616
+```
+
+## Custom Configuration
+
+To use a custom `activemq.xml` configuration file, place your file in the chart directory and specify the path:
+
+```yaml
+config:
+  activemqXmlPath: "files/my-activemq.xml"
+```
+
+Then install with your custom values:
+
+```bash
+helm install my-activemq . -f values.yaml
+```
+
+Or specify it directly on the command line:
+
+```bash
+helm install my-activemq . --set config.activemqXmlPath="files/my-activemq.xml"
 ```
 
 ## Persistence
